@@ -9,7 +9,6 @@ class AddToCart extends Component {
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
-    // this.RemoveItem = this.RemoveItem.bind(this);
   }
 
   increment () {
