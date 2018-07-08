@@ -1,0 +1,32 @@
+.addToCart {
+  border: thin solid #2bb031;
+  border-radius: 3px;
+  vertical-align: middle;
+  text-align: center;
+
+  span {
+    min-width: 25px;
+    display: inline-block;
+  }
+
+  span:first-child,
+  span:last-child {
+    color: #2bb031;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    &:hover {
+      color: #fff;
+      transition: all 0.1s ease;
+      background-color: #2bb031;
+    }
+  }
+
+  span:first-child {
+    border-right: thin solid #2bb031;
+  }
+  span:last-child {
+    border-left: thin solid #2bb031;
+  }
+
+
+}

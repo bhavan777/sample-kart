@@ -1,0 +1,14 @@
+.summary {
+  &__products {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__product {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: thin dashed rgba(0,0,0,0.15);
+
+  }
+}

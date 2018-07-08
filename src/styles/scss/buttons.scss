@@ -1,0 +1,54 @@
+.button {
+  padding: 0px 10px;
+  line-height: 25px;
+  border-radius: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+  border: thin solid transparent;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  display: inline-block;
+  color: white;
+
+  &__wrap {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }  
+  }
+
+  &__primary {
+    background-color: #2bb031;
+  }
+  
+  &__secondary {
+    background-color: #fafafa;
+    color: #333;
+    border: thin solid rgba(0,0,0,0.4);
+  }
+
+  &--action {
+    color: #2bb031;
+    line-height: 14px;
+    min-width: 15px;
+    display: inline-block;
+    &:hover {
+      background-color: #2bb031;
+      color: white;
+    }
+  }
+
+  &__large {
+    padding: 3px 15px;
+    font-size: 14px;
+  }
+  &__block {
+    width: 100%;
+    padding: 3px 15px;
+    font-size: 14px;
+  }
+}
