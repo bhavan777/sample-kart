@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #fafafa;
   font-family: 'Lato', sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1180px;
   width: 100%;
   margin: 0 auto;
 }
@@ -29,13 +29,12 @@ a{
 }
 .user-switch {
   position: fixed;
-  top: 0px;
-  left: 50%;
+  bottom: 0px;
   width: 150px;
+  right:0;
   background-color: #DDD;
   border-radius: 0 0 4px 4px;
   line-height: 40px;
-  transform: translateX(-50%);
   input {
     margin-right: 10px;
   }

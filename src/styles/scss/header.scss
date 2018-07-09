@@ -15,24 +15,7 @@ header {
     font-size: 2rem;
     float: left;
   }
-
-  .fa-shopping-cart {
-    color: #aaa;
+  .button {
     float: right;
-    line-height: 50px;
-    position: relative;
-  }
-
-  .cart-count {
-    color:white;
-    position: absolute;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 50%;
-    background-color: #2bb031;
-    font-size: 0.8rem;
-    right: -10px;
   }
 }

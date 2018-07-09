@@ -16,78 +16,153 @@
 
   &__steps {
     width: 68%;
+    padding-top: 20px;
     float: left;
     margin-right: 2%;
   }
   &__summary {
     width: 30%;
-    padding: 10px;
+    margin-top: 20px;
     min-height: 100px;
-    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     float: left;
-  }
-}
-.step {
-  background-color: #FFF;
-  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
-  color: #333;
-  padding: 10px;
-  margin-bottom: 15px;
-  transition: all 0.2s ease;
 
-  &__header {
-    font-size: 1.2rem;
-    padding-bottom: 10px;
-  }
-  
-  &__body{
-    border-top: thin solid rgba(0,0,0,0.2);
-    &::after {
-      content: '';
-      display: table;
-      clear: both;
+    h3 {
+      padding: 10px;
+      border-bottom: thin solid rgba(0,0,0,0.1);
+      padding-bottom: 10px;
+    }
+    
+    .body {
+      padding: 10px;
+      border-bottom: thin solid rgba(0,0,0,0.2);
+      &::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+
+      .key,
+      .val {
+        float: left;
+        width: 50%;
+        line-height: 40px;
+        color: #666;        
+      }
+      .val {
+        color: #000;
+        text-align: right;
+        &.green {
+          color: #2bb031;
+        }
+      }
     }
   }
 }
-.user {
+.step {
   width: 100%;
   line-height: 30px;
   background-color: #FFF;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
   color: #333;
-  padding: 10px;
   margin-bottom: 15px;
   transition: all 0.2s ease;
- 
-  &.active {
-  background-color: #2bb031;
-  color: #fff;
-  }
-
   &__header {
     font-size: 1.2rem;
-    padding-bottom: 10px;
+    line-height: 40px;
+    color: #999;
+    padding-left: 40px;
+    padding-right: 15px;
+    position: relative;
+    &::before {
+      content: attr(data-sequence);
+      height: 30px;
+      color: #2bb031;
+      width: 30px;
+      text-align: center;
+      color: inherit;
+      line-height: 30px;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      background-color: rgba(0,0,0,0.05);
+      border-radius: 50%;
+    }
+    &::after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+    h5 {
+      float: left;
+    }
+    &--actions {
+      float: right;
+      opacity: 0;
+      margin-top: -3px;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
   }
-
+  
   &__body{
+    max-height: 0;
+    overflow: hidden;
     border-top: thin solid rgba(0,0,0,0.2);
     &::after {
       content: '';
       display: table;
       clear: both;
     }
-
-    &--content,
-    &--action {
-      width: 50%;
-      float: left;
+  }
+  &.active {
+    .step__header {
+      background-color: #2bb031;
+      padding-left: 50px;
+      color: #fff;
+      line-height: 50px;
+      &::before {
+        background-color: rgba(255,255,255,0.2);
+        // height: 7px;
+        // width: 15px;
+        // border: 2px solid white;
+        // border-top: 0;
+        // border-right: 0;
+        // transform: rotate(-45deg);
+        // position: absolute;
+        left: 10px;
+        top: 10px;
+      }
     }
-
-    &--action {
-      width: 50%;
-      padding: 30px 10% 0 10%;
-      float: right;
+    .step__body {
+      max-height: 350px;
+      overflow: scroll;
+      padding: 15px;
     }
+  }
+  &.done {
+    .step__header {
+      background-color: #f6f6f6;
+      color: #000;
+    }
+    .step__header--actions {
+      transition: all 0.2s ease;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+.user {
+  &__content,
+  &__action {
+    width: 50%;
+    float: left;
+  }
+
+  &__action {
+    width: 50%;
+    padding: 30px 10% 0 10%;
+    float: right;
   }
 
   &__login {
@@ -158,8 +233,78 @@
     float: left;
   }
 
+  &__pricing {
+    max-width: 30%;
+    float: right;
+    text-align: right
+  }
+
   &__action{
     padding: 15px 20%;
   }
 
+}
+.yourOrder {
+  h2{
+    border-bottom: thin solid #2bb031;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  &__product {
+    width: 24%;
+    margin-right: 1.334%;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 300px;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+    text-align: center;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    img {
+      max-width: 100%;
+    }
+    h4 {
+      font-weight: 300;
+      border-top: thin solid rgba(0,0,0,0.1);
+      padding-top: 10px;
+    }
+  }
+
+  &__products {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  .card {
+    width: 31%;
+    margin-right: 3.5%;
+    margin-top: 15px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+    border-radius: 1px;
+    min-height: 110px;
+    padding: 15px;
+    &:nth-child(4n){
+      margin-right: 0;
+    }
+
+    p {
+      line-height: 2;
+    }
+    h4 {
+      padding-bottom: 10px;
+      border-bottom: thin solid rgba(0,0,0,0.1);
+
+    }
+
+    &.big-card {
+      width: 100%;
+    }
+  }
 }

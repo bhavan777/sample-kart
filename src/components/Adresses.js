@@ -17,12 +17,13 @@ class Address extends Component {
   }
 
   nextStep (id) {
-    alert(id);
+    this.props.updateStatus('cartReview', 'done', false);
   }
 
   render () {
     return (
-      <ul className='addresses'>
+      this.props.user.id
+      ? (<ul className='addresses'>
         {
         this.props.user.addresses.map((address) => {
           let classNames = address.id === this.state.selectedAddress ? 'address selected' : 'address';
@@ -35,10 +36,9 @@ class Address extends Component {
           );
         })
         }
-        {/* <li className='address'>
-          <a className='button address__continue button__primary' onClick={this.nextStep}>ADD new address</a>
-        </li> */}
       </ul>
+      )
+      : <div />
     );
   }
 }

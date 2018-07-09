@@ -3,30 +3,39 @@
   border-radius: 3px;
   vertical-align: middle;
   text-align: center;
+  max-height: 27px;
+  overflow: hidden;
 
   span {
     min-width: 25px;
     display: inline-block;
   }
 
-  span:first-child,
-  span:last-child {
+  .minus,
+  .plus {
     color: #2bb031;
     cursor: pointer;
+    line-height: 20px;
     transition: all 0.1s ease;
-    &:hover {
+    &:hover:not(.disabled) {
       color: #fff;
       transition: all 0.1s ease;
       background-color: #2bb031;
     }
   }
 
-  span:first-child {
+  .minus {
     border-right: thin solid #2bb031;
+
+    &.disabled {
+      color: #999;
+      cursor: not-allowed;
+      pointer-events: none;
+      background-color: #eee;
+      line-height: 19px;
+    }
   }
-  span:last-child {
+  .plus {
     border-left: thin solid #2bb031;
   }
-
-
 }

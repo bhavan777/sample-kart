@@ -5,62 +5,68 @@ class OrderSummary extends PureComponent {
   constructor (props) {
     super(props);
     this.state = {
-      cart: this.props.cart
+      cart: this.props.cart,
+      status: this.props.status
     };
     this.orderClickHandler = this.orderClickHandler.bind(this);
     this.removethisItem = this.removethisItem.bind(this);
+    this.updateStatus = this.updateStatus.bind(this);
   }
 
-  orderClickHandler (id, type, count) {
-    let newState = this.state.cart.map((item) => {
-      if (item.id === id) {
-        item.count = count;
-      }
-      return item;
-    });
-    console.log(newState);
-    this.setState({cart: newState});
+  orderClickHandler (id, count) {
+    this.props.updateCart(id, count);
+  }
+
+  static getDerivedStateFromProps (props, state) {
+    if (props.cart !== state.cart || props.status !== state.status) {
+      return {
+        cart: props.cart,
+        status: props.status
+      };
+    }
+    return null;
   }
 
   removethisItem (id) {
-    let idx = -1;
-    let newCart = [...this.state.cart];
-    for (let i = 0; i < newCart.length; i++) {
-      if (newCart[i].id === id) {
-        idx = i;
-      }
-    }
+    this.props.updateCart(id, 0);
+  }
 
-    let cartToUpdate = [...newCart.slice(0, idx), ...newCart.slice(idx + 1)];
-    this.setState({cart: cartToUpdate});
+  updateStatus (status, editing) {
+    this.props.setFinalOrder('cart', this.state.cart);
+    this.props.updateStatus('cartReview', status, editing);
   }
 
   render () {
+    let classes = this.props.classList[this.state.status];
     return (
       <Fragment>
-        <div className='step'>
-          <div className='step__header'>
+        <div className={classes}>
+          <div data-sequence='3' className='step__header'>
             <h5>Order Summary</h5>
+            <div className='step__header--actions'><a onClick={this.updateStatus.bind(this, 'pending', true)} className='button button__secondary'>Edit</a></div>
           </div>
           <div className='step__body order'>
             {
             this.state.cart.map((item) => (
               <div key={item.id}>
                 <div className='order__item'>
-                  <img className='order__dp' src={item.img} />
+                  <img className='order__dp' alt='' src={item.img} />
                   <div className='order__details'>
                     <h4>{item.title}</h4>
                     <p>{item.price} x {item.count} units</p>
                     <AddToCart minValue={1} clickHandler={this.orderClickHandler} value={item.count} id={item.id} />
                     <a onClick={this.removethisItem.bind(this, item.id)} className='button button__secondary'>Remove</a>
                   </div>
+                  <div className='order__pricing'>
+                    <p>{item.price * item.count}</p>
+                  </div>
                 </div>
               </div>
               ))
             }
           </div>
-          <div className='order__action'>
-            <a className='button button__primary button__block'>Continue</a>
+          <div className='step__body align-center'>
+            <a onClick={this.updateStatus.bind(this, 'done', false)} className='button button__primary button__large'>Proceed to Payment</a>
           </div>
         </div>
       </Fragment>

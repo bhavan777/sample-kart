@@ -1,31 +1,4 @@
 const data = {
-  products: [
-    {
-      id: 1,
-      title: 'oneplus 6',
-      img: '/prod-1.jpg',
-      price: 39999
-    },
-    {
-      id: 2,
-      title: 'Samsung galaxy S9 Plus',
-      img: '/prod-2.jpg',
-      price: 64900
-    },
-    {
-      id: 3,
-      title: 'Apple Iphone X',
-      img: '/prod-3.jpg',
-      price: 106900
-    },
-    {
-      id: 4,
-      title: 'LG G7 ThinQ',
-      img: '/prod-4.png',
-      price: 59990
-    }
-
-  ],
   user: {
     id: 'Ux1234',
     firstName: 'Bhavan',
@@ -68,6 +41,38 @@ const data = {
         city: 'Kanpur',
         pinCode: '208011',
         state: 'Uttar Pradesh'
+      }
+    ]
+  },
+  order: {
+    cart: [
+      {
+        id: 1,
+        count: 1,
+        title: 'oneplus 6',
+        img: '/prod-1.jpg',
+        price: 39999
+      },
+      {
+        id: 2,
+        count: 1,
+        title: 'Samsung galaxy S9 Plus',
+        img: '/prod-2.jpg',
+        price: 64990
+      },
+      {
+        id: 3,
+        count: 1,
+        title: 'Apple Iphone X',
+        img: '/prod-3.jpg',
+        price: 104900
+      },
+      {
+        id: 4,
+        count: 1,
+        title: 'LG G7 ThinQ',
+        img: '/prod-4.png',
+        price: 54000
       }
     ]
   }
